@@ -1,11 +1,11 @@
-<h2 align="center"> <a href="https://arxiv.org/pdf/2405.04883">【ICML 2024 🔥】Molecule-Space: Free Lunch in Unified Multimodal Space via Knowledge Fusion </a> </h2>
+<h2 align="center"> <a href="https://arxiv.org/pdf/2405.04883">【ICML 2024 🔥】FreeBind: Free Lunch in Unified Multimodal Space via Knowledge Fusion </a> </h2>
 
 [**Zehan Wang**](https://zehanwang01.github.io/) · [**Ziang Zhang**](https://scholar.google.com/citations?user=DptGMnYAAAAJ) · [**Xize Cheng**](https://exgc.github.io/) · [**Rongjie Huang**](https://rongjiehuang.github.io/) · [**Luping Liu**](https://luping-liu.github.io/) · [**Zhenhui Ye**]() · [**Haifeng Huang**]() · [**Yang Zhao**]() · [**Tao Jin**]() · [**Peng Gao**]() · [**Zhou Zhao**]()
 
-Molecule-Space is an efficient unified multimodal space enhancement strategy. Built upon ImageBind, we build an audio-visual-text representation that outperforms ImageBind by a large margin.
+FreeBind is an efficient unified multimodal space enhancement strategy. Built upon ImageBind, we build an audio-visual-text representation that outperforms ImageBind by a large margin.
 
 ## News
-- `2024/05/02`: MoleculeSpace is accepted by ICML2024.
+- `2024/05/02`: FreeBind is accepted by ICML2024.
 
 ## To-Do List
 - [x] Inference code
@@ -45,7 +45,7 @@ Comparison on zero-shot classification tasks:
 -checkpoints
       [pretrained weights for ImageBind, InternVL, CLAP and projectors]
 -models
-      projectors.py                 [the projector of MoleculeSpace]
+      projectors.py                 [the projector of FreeBind]
       experts.py                    [base feature extractors]
       uni_spaces.py                 [combine projector and experts together]
       imagebind_audio.py            [imagebind audio branch for finetune]
@@ -57,8 +57,8 @@ Comparison on zero-shot classification tasks:
 ### 1. install enviornments
 Install pytorch 1.13+ and other 3rd party dependencies.
 ```shell
-conda create -n molecule python=3.8
-conda activate molecule
+conda create -n freebind python=3.8
+conda activate freebind
 pip install -r requirements.txt
 ```
 
@@ -67,9 +67,9 @@ To install ImageBind in this environment, you should clone the [ImageBind reposi
 ### 2. download checkpoints
 The pretrained weights of feature extractors and projectors are shown below. You need to download the weights for **CLAP** and **InternVL-14B** and put them in directory `checkpoints` and renamed them. The weights for **Imagebind** will be downloaded automatically during the first running.
 
-- **Projectors**: Molecular projecotrs, we provide pretrained weights on [huggingface](https://huggingface.co/Viglong/Molecule) with **ImageBind++**, **InternVL$`_{IB}`$++** and **InternVL$`_{IB}^{\dagger}`$++**
+- **Projectors**: Freebind projecotrs, we provide pretrained weights on [huggingface](https://huggingface.co/Viglong/FreeBind) with **ImageBind++**, **InternVL$`_{IB}`$++** and **InternVL$`_{IB}^{\dagger}`$++**
 
-- **CLAP**：Audio-Language experts, you can find the repository [here](https://github.com/LAION-AI/CLAP) and you can download the CLAP-General weight we use [here](https://huggingface.co/lukewys/laion_clap/blob/main/630k-fusion-best.pt) and the CLAP-Music weight [here](https://huggingface.co/lukewys/laion_clap/blob/main/music_speech_audioset_epoch_15_esc_89.98.pt). We also provided the checkpoints with [our projectors](https://huggingface.co/Viglong/Molecule).
+- **CLAP**：Audio-Language experts, you can find the repository [here](https://github.com/LAION-AI/CLAP) and you can download the CLAP-General weight we use [here](https://huggingface.co/lukewys/laion_clap/blob/main/630k-fusion-best.pt) and the CLAP-Music weight [here](https://huggingface.co/lukewys/laion_clap/blob/main/music_speech_audioset_epoch_15_esc_89.98.pt). We also provided the checkpoints with [our projectors](https://huggingface.co/Viglong/FreeBind).
   
     > Note: the version of the package `transformers` should not be higher than **4.30.2**, otherwise the weight of CLAP's text branch may not be loaded in correctly.
 - **InternVL-14B**：Vision Language Foundation Model, you can find the repository [here](https://huggingface.co/OpenGVLab/InternVL-14B-224px) and you can download its weight by `git lfs clone` command.
@@ -98,7 +98,7 @@ The final structure of `checkpoints` should be like this:
 
 ### 3. Inference
 
-Extract and compare embeddings in different MoleculeSpaces:
+Extract and compare embeddings in different FreeBind:
 ```python
 from models.paths import *
 import torch
@@ -213,8 +213,8 @@ uni_example(uni)
 If you find this project useful, please consider giving a star and citation:
 
 ```bibtex
-@misc{wang2024moleculespace,
-      title={Molecule-Space: Free Lunch in Unified Multimodal Space via Knowledge Fusion}, 
+@misc{wang2024freebind,
+      title={FreeBind: Free Lunch in Unified Multimodal Space via Knowledge Fusion}, 
       author={Zehan Wang and Ziang Zhang and Xize Cheng and Rongjie Huang and Luping Liu and Zhenhui Ye and Haifeng Huang and Yang Zhao and Tao Jin and Peng Gao and Zhou Zhao},
       year={2024},
       eprint={2405.04883},
@@ -245,17 +245,3 @@ lf you have any questions or suggestions, feel free to drop us an email ( [wangz
 ## Acknowledgement
 Thanks to the open source of the following projects: [InternVL](https://github.com/OpenGVLab/InternVL), [CLAP](https://github.com/LAION-AI/CLAP), [Imagebind](https://github.com/facebookresearch/ImageBind).
 
-<!--
-**MoleculeSpace/MoleculeSpace** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
