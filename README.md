@@ -244,6 +244,7 @@ lf you have any questions or suggestions, feel free to drop us an email ( [wangz
 
 ## Acknowledgement
 Thanks to the open source of the following projects: [InternVL](https://github.com/OpenGVLab/InternVL), [CLAP](https://github.com/LAION-AI/CLAP), [Imagebind](https://github.com/facebookresearch/ImageBind).
+
 <!--
 **MoleculeSpace/MoleculeSpace** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
